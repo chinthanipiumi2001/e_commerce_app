@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:e_commerce_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget{
@@ -7,6 +10,16 @@ class SplashScreen extends StatefulWidget{
   State<SplashScreen> createState() => _SplashScreenState();
 }
 class _SplashScreenState extends State<SplashScreen>{
+
+  @override
+  void initState(){
+    super.initState();
+    Timer(Duration(seconds: 3),
+        () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context)=> HomeScreen(),
+        )));
+  }
   @override
   Widget build(BuildContext context){
     return Material(
@@ -26,14 +39,15 @@ class _SplashScreenState extends State<SplashScreen>{
           children: [
             Icon(
                 Icons.shopping_cart,
-                size: 200,
+                size: 250,
                 color:Color.fromARGB(255, 238, 80, 80),
             ),
             Text("Pandi Shopping center",
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 30,
+                fontSize: 45,
                 fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.italic,
               ),
             ),
           ],
